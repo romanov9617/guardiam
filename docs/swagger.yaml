@@ -25,6 +25,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+        default:
+          description: General Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /login:
     x-ogen-operation-group: Flow
     post:
@@ -42,6 +48,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TokenResponse'
+        default:
+          description: General Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /refresh:
     x-ogen-operation-group: Flow
     post:
@@ -62,6 +74,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TokenResponse'
+        default:
+          description: General Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /users:
     x-ogen-operation-group: User
     get:
@@ -77,6 +95,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
+        default:
+          description: General Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /users/{id}:
     x-ogen-operation-group: User
     parameters:
@@ -92,6 +116,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+        default:
+          description: General Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
     patch:
       summary: Update a user
       security:
@@ -109,6 +139,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+        default:
+          description: General Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
     delete:
       summary: Delete a user
       security:
@@ -116,6 +152,12 @@ paths:
       responses:
         '204':
           description: User deleted
+        default:
+          description: General Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
 components:
   securitySchemes:
     BearerAuth:
@@ -181,3 +223,15 @@ components:
         refresh_token:
           type: string
       required: [access_token, refresh_token]
+    Error:
+      description: Represents error object
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int64
+        message:
+          type: string
+      required:
+        - code
+        - message
