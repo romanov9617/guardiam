@@ -3,6 +3,7 @@ module cmd/iam/main.go
 go 1.24.4
 
 require (
+	github.com/go-chi/chi/v5 v5.2.2
 	github.com/go-faster/errors v0.7.1
 	github.com/go-faster/jx v1.1.0
 	github.com/ogen-go/ogen v1.14.0

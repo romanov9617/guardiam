@@ -1,3 +1,5 @@
+// Package config implements config structs and
+// utility for loading config
 package config
 
 import (
