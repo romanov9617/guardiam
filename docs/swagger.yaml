@@ -9,7 +9,7 @@ servers:
     description: Local server
 paths:
   /signup:
-    x-ogen-operation-group: Flow
+    x-ogen-operation-group: Auth
     post:
       summary: Register a new user
       requestBody:
@@ -32,7 +32,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
   /login:
-    x-ogen-operation-group: Flow
+    x-ogen-operation-group: Auth
     post:
       summary: Login and obtain tokens
       requestBody:
@@ -55,7 +55,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
   /refresh:
-    x-ogen-operation-group: Flow
+    x-ogen-operation-group: Auth
     post:
       summary: Refresh access token
       requestBody:

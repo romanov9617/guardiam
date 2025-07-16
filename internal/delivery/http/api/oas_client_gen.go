@@ -28,14 +28,14 @@ func trimTrailingSlashes(u *url.URL) {
 
 // Invoker invokes operations described by OpenAPI v3 specification.
 type Invoker interface {
-	FlowInvoker
+	AuthInvoker
 	UserInvoker
 }
 
-// FlowInvoker invokes operations described by OpenAPI v3 specification.
+// AuthInvoker invokes operations described by OpenAPI v3 specification.
 //
-// x-gen-operation-group: Flow
-type FlowInvoker interface {
+// x-gen-operation-group: Auth
+type AuthInvoker interface {
 	// LoginPost invokes POST /login operation.
 	//
 	// Login and obtain tokens.

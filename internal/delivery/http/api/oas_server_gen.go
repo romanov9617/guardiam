@@ -8,7 +8,7 @@ import (
 
 // Handler handles operations described by OpenAPI v3 specification.
 type Handler interface {
-	FlowHandler
+	AuthHandler
 	UserHandler
 	// NewError creates *ErrorStatusCode from error returned by handler.
 	//
@@ -16,10 +16,10 @@ type Handler interface {
 	NewError(ctx context.Context, err error) *ErrorStatusCode
 }
 
-// FlowHandler handles operations described by OpenAPI v3 specification.
+// AuthHandler handles operations described by OpenAPI v3 specification.
 //
-// x-ogen-operation-group: Flow
-type FlowHandler interface {
+// x-ogen-operation-group: Auth
+type AuthHandler interface {
 	// LoginPost implements POST /login operation.
 	//
 	// Login and obtain tokens.
